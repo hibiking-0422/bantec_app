@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  part_name: MyString
+  unit_price: 1
+  volume: 1
+  maker: MyString
+  vender: MyString
+  day: 2019-09-15
+
+two:
+  part_name: MyString
+  unit_price: 1
+  volume: 1
+  maker: MyString
+  vender: MyString
+  day: 2019-09-15

@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'subcons/index'
-  get 'subcons/new'
-  get 'subcons/edit'
-  get 'works/index'
-  get 'works/new'
-  get 'works/show'
-  get 'works/edit'
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
@@ -33,6 +26,12 @@ Rails.application.routes.draw do
   end
 
   resources :subcons do
+    member do
+      get 'delete'
+    end
+  end
+
+  resources :parts do
     member do
       get 'delete'
     end

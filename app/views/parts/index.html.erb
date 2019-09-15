@@ -1,0 +1,13 @@
+<h1>部品一覧</h1>
+<% @parts.each do |part|%>
+部品名:　<%= part.part_name%><br>
+単価：　<%= part.unit_price %><br>
+数量：　<%= part.volume %><br>
+メーカー：　<%= part.maker %><br>
+仕入先：　<%= part.vender %>
+日付:　<%=part.day%><br>
+<%=link_to "部品編集", edit_part_url(part.id,:project_id => @project.id)%>　<%=link_to "削除", delete_part_path(part.id), method: :delete %><br>
+<% end %>
+<%=link_to "部品追加", new_part_url(:project_id => @project.id)%>
+
+<br><%= link_to '戻る', :back %> 
