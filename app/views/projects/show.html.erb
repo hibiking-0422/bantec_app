@@ -3,7 +3,8 @@
 納入先:　<%=@project.delivery_destination%><br>
 工事番号:　<%=@project.construction_number%><br>
 時給:　<%=@project.wage%><br>
-
+<%=@project.id%>
 <br>
 <%=link_to "編集", edit_project_url(@project.id)%><br>
-<%=link_to "削除", delete_project_path(@project.id), method: :delete %>
+<%=link_to "交通費一覧", drivers_url(:project_id => @project.id)%><br>
+

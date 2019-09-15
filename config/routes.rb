@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   end
   get 'projects/new', to:'projects#new'
 
-
-
+  resources :drivers do
+    member do
+      get 'delete'
+    end
+  end
 end

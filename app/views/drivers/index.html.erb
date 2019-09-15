@@ -1,0 +1,5 @@
+<h1>交通費一覧</h1>
+<% @drivers.each do |driver|%>
+<%= driver.driver_cost%>円<br>
+<% end %>
+<%=link_to "交通費追加", new_driver_url(:project_id => @project.id)%>

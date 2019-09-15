@@ -1,0 +1,12 @@
+<%= form_for @driver do |f| %>
+
+    <%= f.label :driver_cost,"交通費" %>
+    <%= f.number_field :driver_cost %>
+
+    <%= f.hidden_field :project_id, :value => params[:project_id] %>
+    <% if @driver.id.nil? %>
+        <%= f.submit "作成" %>
+    <% else %>
+        <%= f.submit "修正" %>
+    <% end %>
+<% end %>
