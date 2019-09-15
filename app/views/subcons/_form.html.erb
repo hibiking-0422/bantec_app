@@ -1,0 +1,17 @@
+<%= form_for @subcon do |f| %>
+    <%= f.label :subcon_name,"外注先" %>
+    <%= f.text_field :subcon_name %><br>
+
+    <%= f.label :subcon_cost,"外注費" %>
+    <%= f.number_field :subcon_cost %>
+
+    <%= f.label :day,"日付" %>
+    <%= f.date_select :day %>
+
+    <%= f.hidden_field :project_id, :value => params[:project_id] %>
+    <% if @subcon.id.nil? %>
+        <%= f.submit "作成" %>
+    <% else %>
+        <%= f.submit "修正" %>
+    <% end %>
+<% end %>

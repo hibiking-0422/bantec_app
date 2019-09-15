@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'subcons/index'
+  get 'subcons/new'
+  get 'subcons/edit'
   get 'works/index'
   get 'works/new'
   get 'works/show'
@@ -24,6 +27,12 @@ Rails.application.routes.draw do
   end
 
   resources :works do
+    member do
+      get 'delete'
+    end
+  end
+
+  resources :subcons do
     member do
       get 'delete'
     end

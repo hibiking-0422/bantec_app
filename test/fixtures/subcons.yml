@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subcon_name: MyString
+  subcon_cost: 1
+  day: 2019-09-15
+  project_id: 1
+
+two:
+  subcon_name: MyString
+  subcon_cost: 1
+  day: 2019-09-15
+  project_id: 1

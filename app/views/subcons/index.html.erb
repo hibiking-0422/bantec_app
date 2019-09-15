@@ -1,0 +1,10 @@
+<h1>外注費一覧</h1>
+<% @subcons.each do |subcon|%>
+外注先:　<%= subcon.subcon_name%><br>
+外注費：　<%= subcon.subcon_cost %>円<br>
+日付:　<%=subcon.day%><br>
+<%=link_to "外注費編集", edit_subcon_url(subcon.id,:project_id => @project.id)%>　<%=link_to "削除", delete_subcon_path(subcon.id), method: :delete %><br>
+<% end %>
+<%=link_to "外注費追加", new_subcon_url(:project_id => @project.id)%>
+
+<br><%= link_to '戻る', :back %> 
