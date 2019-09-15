@@ -18,16 +18,27 @@ class DriversController < ApplicationController
     end
   end
 
-  def show
-
+  def edit
+    @driver = Driver.find(params[:id])
   end
 
-  def edit
+  def update
+    driver = Driver.find(params[:id])
+    project_id = driver.project_id
+    driver.update!(driver_params)
+    redirect_to drivers_path(project_id: project_id)
+  end
+
+  def delete
+    driver = Driver.find(params[:id])
+    project_id = driver.project_id
+    driver.destroy
+    redirect_to drivers_path(project_id: project_id)
   end
 
   private
 
   def driver_params
-    params.require(:driver).permit(:driver_cost,:project_id)  
+    params.require(:driver).permit(:driver_cost,:project_id,:day)  
   end
 end

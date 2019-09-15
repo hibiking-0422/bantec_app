@@ -3,6 +3,9 @@
     <%= f.label :driver_cost,"交通費" %>
     <%= f.number_field :driver_cost %>
 
+    <%= f.label :day,"日付" %>
+    <%= f.date_select :day %>
+    
     <%= f.hidden_field :project_id, :value => params[:project_id] %>
     <% if @driver.id.nil? %>
         <%= f.submit "作成" %>
