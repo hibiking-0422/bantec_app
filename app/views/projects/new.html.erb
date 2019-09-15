@@ -1,15 +1,3 @@
-<%= form_for @project do |f| %>
-    <%= f.label :project_name,"プロジェクト名" %>
-    <%= f.text_field :project_name %><br>
+<h2>プロジェクト作成</h2>
 
-    <%= f.label :customer_name,"顧客先" %>
-    <%= f.text_field :customer_name %><br>
-
-    <%= f.label :delivery_destination,"納入先" %>
-    <%= f.text_field :delivery_destination %><br>
-
-    <%= f.label :construction_number,"工事番号" %>
-    <%= f.number_field :construction_number %>
-
-    <%= f.submit "作成" %>
-<% end %>
+<%= render "form"%>

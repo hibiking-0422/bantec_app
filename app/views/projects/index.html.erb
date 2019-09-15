@@ -1,11 +1,10 @@
 <table>
 <% @projects.each do |project|%>
-        <tr>
-            <td><%=project.project_name %></td>
-        </tr>
-<% end %>
+    <tr>
+        <td><%=project.id%></td>
+        <td><%=link_to project.project_name, project_url(project.id)%></td>
+    </tr>
+<%end%>
 </table>
-
-<br><br>
-
-<%= link_to "プロジェクト作成",  controller: "projects", action: "new" %>
+<br>
+<%= link_to "プロジェクト作成", {controller: :projects, action: :new}%>
