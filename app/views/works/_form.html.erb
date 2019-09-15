@@ -1,0 +1,17 @@
+<%= form_for @work do |f| %>
+
+    <%= f.select :worker, ["前島","内田","山口"], :prompt => "選択してください" %>
+
+    <%= f.label :working_hour,"就労時間" %>
+    <%= f.number_field :working_hour %>
+
+    <%= f.label :day,"日付" %>
+    <%= f.date_select :day %>
+    
+    <%= f.hidden_field :project_id, :value => params[:project_id] %>
+    <% if @work.id.nil? %>
+        <%= f.submit "作成" %>
+    <% else %>
+        <%= f.submit "修正" %>
+    <% end %>
+<% end %>

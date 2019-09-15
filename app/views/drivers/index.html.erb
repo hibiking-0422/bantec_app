@@ -2,7 +2,8 @@
 <% @drivers.each do |driver|%>
 交通費:　<%= driver.driver_cost%>円<br>
 日付:　<%=driver.day%><br>
-<%=link_to "交通費編集", edit_driver_url(driver.id,:project_id => @project.id)%><br>
+<%=link_to "交通費編集", edit_driver_url(driver.id,:project_id => @project.id)%>　<%=link_to "削除", delete_driver_path(driver.id), method: :delete %><br>
 <% end %>
 <%=link_to "交通費追加", new_driver_url(:project_id => @project.id)%>
 
+<br><%= link_to '戻る', :back %> 

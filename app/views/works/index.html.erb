@@ -1,0 +1,10 @@
+<h1>労務費一覧</h1>
+<% @works.each do |work|%>
+従業員名:　<%= work.worker%><br>
+就労時間：　<%= work.working_hour %>時間<br>
+日付:　<%=work.day%><br>
+<%=link_to "労務費編集", edit_work_url(work.id,:project_id => @project.id)%>　<%=link_to "削除", delete_work_path(work.id), method: :delete %><br>
+<% end %>
+<%=link_to "労務費追加", new_work_url(:project_id => @project.id)%>
+
+<br><%= link_to '戻る', :back %> 
