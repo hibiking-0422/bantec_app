@@ -5,7 +5,13 @@
 時給:　<%=@project.wage%><br>
 日付:　<%=@project.day%><br>
 <%=@project.id%>
-<br>
+
+<br><br>
+
+<%= @driver_cost%>
+
+<br><br>
+
 <%=link_to "編集", edit_project_url(@project.id)%><br>
 <%=link_to "交通費一覧", drivers_url(:project_id => @project.id)%><br>
 <%=link_to "労務費一覧", works_url(:project_id => @project.id)%><br>
