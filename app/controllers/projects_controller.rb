@@ -21,8 +21,28 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
 
-    @driver_cost = Driver.sums(params[:id])
+    drivers =  Driver.new
+    drivers.set(params[:id])
+    @driver_cost = drivers.all_cost
+
+    works = Work.new
+    works.set(params[:id],@project.wage)
+    @work_hour = works.all_hour
+    @piece_workers = works.piece_workers
+    @work_cost = works.all_cost
+
+    subcons = Subcon.new
+    subcons.set(params[:id])
+    @subcons_cost = subcons.all_cost
+
+    parts = Part.new
+    parts.set(params[:id])
+    @parts_cost = parts.all_cost
+    
+    @material = @parts_cost * 0.08
+    @management_cost = (@work_cost + @parts_cost) * 0.03
   end
+
   def edit
     @project = Project.find(params[:id])
   end
