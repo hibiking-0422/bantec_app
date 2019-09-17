@@ -1,8 +1,9 @@
 class Driver < ApplicationRecord
     belongs_to :project
 
-    def self.sums(project_id)
-        drivers = Driver.where(project_id: project_id)
+    def self.total
+        drivers = Driver.all
+        sum = 0
 
         drivers.each do |driver|
             sum += driver.driver_cost

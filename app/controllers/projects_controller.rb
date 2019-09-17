@@ -21,7 +21,6 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
 
-    @driver_cost = Driver.sums(params[:id])
   end
   def edit
     @project = Project.find(params[:id])
