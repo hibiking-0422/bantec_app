@@ -1,4 +1,19 @@
-<h2>部品追加</h2>
 
-<%= render "form"%>
-<br><%= link_to '戻る', :back %> 
+
+<%= form_tag({ :controller => 'parts', :action => 'create' },{ :method => :post}) do %>
+
+<% 10.times do %>
+部品名:  <%= text_field_tag 'parts[]' %><br>
+メーカー:  <%= text_field_tag  'parts[]' %><br>
+仕入先:  <%= text_field_tag  'parts[]' %><br>
+単価  <%= number_field_tag  'parts[]' %><br>
+数量  <%= number_field_tag  'parts[]' %><br>
+日付  <%= date_field_tag  'parts[]' %><br>
+
+<%= hidden_field_tag :project_id, params[:project_id] %>
+<% end %>
+  <%= submit_tag %>
+<% end %>
+
+
+

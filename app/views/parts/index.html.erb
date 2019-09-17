@@ -1,4 +1,8 @@
-<h1>部品一覧</h1>
+<h1>部品一覧</h1><br><br>
+<% if @count.present? %>
+    <%= @count %>件の部品を追加しました！<br><br>
+<% end %>
+
 <% @parts.each do |part|%>
 部品名:　<%= part.part_name%><br>
 単価：　<%= part.unit_price %><br>
