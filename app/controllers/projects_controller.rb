@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-
+    
     drivers =  Driver.new
     drivers.set(params[:id])
     @driver_cost = drivers.all_cost
