@@ -33,7 +33,8 @@ class Work < ApplicationRecord
             arry1.push(arry2.push(worker,cost))
         end
         return arry1
-
+    end
+    
     def self.total
         works = Work.all
         sum = 0
