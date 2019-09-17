@@ -4,6 +4,11 @@ class SearchesController < ApplicationController
     @works_cost = Work.total
     @subcons_cost = Subcon.total
     @parts_cost = Part.total
+
+    @materials = @parts_cost * 0.08
+    @management_costs = (@works_cost + @parts_cost) * 0.03
+
+    @all_cost = @drivers_cost + @works_cost + @subcons_cost + @parts_cost + @materials + @management_costs
   end
 
   def show
