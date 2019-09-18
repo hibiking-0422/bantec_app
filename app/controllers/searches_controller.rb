@@ -9,10 +9,16 @@ class SearchesController < ApplicationController
     @management_costs = (@works_cost + @parts_cost) * 0.03
 
     @all_cost = @drivers_cost + @works_cost + @subcons_cost + @parts_cost + @materials + @management_costs
-  end
 
-  def show
-  end
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
 
-  
+    @search_drivers = Driver.partial(@start_date,@end_date)
+    @search_works = Work.partial(@start_date,@end_date)
+    @search_subcons = Subcon.partial(@start_date,@end_date)
+    @search_parts = Part.partial(@start_date,@end_date)
+
+
+
+  end
 end

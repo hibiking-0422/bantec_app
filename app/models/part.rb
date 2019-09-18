@@ -22,4 +22,14 @@ class Part < ApplicationRecord
         end
         return sum
     end
+
+    def self.partial(start_date,end_date)
+        sum = 0
+        search_parts = Part.where(day: start_date..end_date)
+
+        search_parts.each do |part|
+            sum += part.unit_price * part.volume
+        end
+        return sum
+    end
 end

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
-  resources :searches, :only => [:index, :show]
   
   resources :projects do
     member do
@@ -36,6 +35,12 @@ Rails.application.routes.draw do
   resources :parts do
     member do
       get 'delete'
+    end
+  end
+
+    resources :searches do
+    member do
+      get 'search'
     end
   end
 end

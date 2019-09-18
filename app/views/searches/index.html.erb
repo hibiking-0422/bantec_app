@@ -7,4 +7,24 @@
 部品:<%= @parts_cost %>円<br>
 消耗品・雑費<%= @materials %>円<br>
 管理費<%= @management_costs %>円<br>
-総合計<%= @all_cost %>円
+総合計<%= @all_cost %>円<br>
+<% if @start_date.present? %>
+開始日:<%= @start_date %><br>
+<% end %>
+<% if @end_date.present? %>
+終了日:<%= @end_date %><br>
+<% end %>
+<%= @search_drivers %><br>
+<%= @search_works %><br>
+<%= @search_subcons %><br>
+<%= @search_parts %>
+
+
+
+<%= form_tag(searches_url, method: :get) do %>
+    期間の開始日
+    <%= date_field_tag 'start_date',nil %>
+    期間の終了日
+    <%= date_field_tag 'end_date', nil %>
+  <%= submit_tag "検索" %>
+<% end %>
