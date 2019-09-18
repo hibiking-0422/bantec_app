@@ -60,3 +60,5 @@ gem 'devise-i18n-views'
 gem "jquery-rails"
 
 gem 'rails-i18n'
+
+gem 'cocoon'
