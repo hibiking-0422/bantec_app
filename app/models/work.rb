@@ -47,4 +47,15 @@ class Work < ApplicationRecord
         end
         return sum
     end
+
+    def self.partial(start_date,end_date)
+        sum = 0
+        search_works = Work.where(day: start_date..end_date)
+
+        search_works.each do |work|
+            project = Project.find(work.project_id)
+            sum += work.working_hour *  project.wage
+        end
+        return sum
+    end
 end
