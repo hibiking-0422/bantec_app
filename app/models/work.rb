@@ -23,14 +23,14 @@ class Work < ApplicationRecord
   
         workers = ["前島","内田","山口"]
         workers.each do |worker|
-            cost = 0
+            hour = 0
             arry2 = []
             @works.each do |work|
                 if(worker == work.worker) then
-                    cost += work.working_hour * @wage
+                    hour += work.working_hour
                 end
             end
-            arry1.push(arry2.push(worker,cost))
+            arry1.push(arry2.push(worker,hour))
         end
         return arry1
     end
