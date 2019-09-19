@@ -1,11 +1,13 @@
-<table>
+<div style="text-align:center">
 <% @projects.each do |project|%>
-    <tr>
-        <td><%=project.id%></td>
-        <td><%=link_to project.project_name, project_url(project.id)%></td>
-    </tr>
+<div style="text-align:center">
+<div class="card", style="max-width: 25rem;">
+  <h4 class="card-title"><%=link_to project.project_name, project_url(project.id)%></h4>
+  <p>顧客名:<%= project.customer_name %>　納入先:<%= project.delivery_destination %></p>
+</div>
+</div>
 <%end%>
-</table>
-
+</div>
 <br>
 <%= link_to "プロジェクト作成", {controller: :projects, action: :new}%>
+
