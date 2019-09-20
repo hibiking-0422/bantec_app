@@ -1,23 +1,29 @@
-プロジェクト名:　<%=@project.project_name%><br>
-顧客先:　<%=@project.customer_name%><br>
-納入先:　<%=@project.delivery_destination%><br>
-工事番号:　<%=@project.construction_number%><br>
-時給:　<%=@project.wage%><br>
-日付:　<%=@project.day%><br>
-<%=@project.id%>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            プロジェクト名:　<%=@project.project_name%><br>
+            顧客先:　<%=@project.customer_name%><br>
+            納入先:　<%=@project.delivery_destination%><br>
+            工事番号:　<%=@project.construction_number%><br>
+            時給:　<%=@project.wage%><br>
+            日付:　<%=@project.day%><br>
 
-<br><br>
+        </div>
 
-交通費:　<%= @driver_cost%>円<br>
-就労時間：<%= @work_hour %>時間 <br>
-労務費：　<%= @work_cost %>円<br>
-<% @piece_workers.each do |worker| %>
-    <%= worker[0] %>:　<%= worker[1] %>円<br>
-<% end %>
-外注費：　<%= @subcons_cost %>円<br>
-部品:　<%= @parts_cost %><br>
-材料費・雑費　<%= @material %>円<br>
-管理費:　<%= @management_cost %>円
+        <div class="col-8">
+           交通費:　<%= @driver_cost%>円<br>
+           就労時間：<%= @work_hour %>時間 <br>
+           労務費：　<%= @work_cost %>円<br>
+           <% @piece_workers.each do |worker| %>
+               <%= worker[0] %>:　<%= worker[1] %>円<br>
+           <% end %>
+           外注費：　<%= @subcons_cost %>円<br>
+           部品:　<%= @parts_cost %><br>
+           材料費・雑費　<%= @material %>円<br>
+           管理費:　<%= @management_cost %>円
+       </div>
+    </div>
+</div>
 
 <br><br>
 
