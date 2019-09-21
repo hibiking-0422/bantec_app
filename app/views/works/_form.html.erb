@@ -12,7 +12,7 @@
     
     <%= f.hidden_field :project_id, :value => params[:project_id] %>
     <% if @work.id.nil? %>
-        <%= f.submit "作成" %>
+        <%= f.submit "作成"%>
     <% else %>
         <%= f.submit "修正" %>
     <% end %>

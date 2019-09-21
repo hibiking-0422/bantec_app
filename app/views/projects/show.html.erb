@@ -1,12 +1,63 @@
-プロジェクト名:　<%=@project.project_name%><br>
-顧客先:　<%=@project.customer_name%><br>
-納入先:　<%=@project.delivery_destination%><br>
-工事番号:　<%=@project.construction_number%><br>
-時給:　<%=@project.wage%><br>
-日付:　<%=@project.day%><br>
-<%=@project.id%>
+<style>
+/* タブ　タイトル枠　2 */
+.kakomi-tab2 {
+ position: relative;
+ margin: 3em auto;
+ padding: 1.2em 1em 1em;
+ width: 90%;
+ background-color: #fff; /*BOX背景色 */
+ border: 2px solid #8d93c8; /* 枠線の太さ・色 */
+ box-shadow: 2px 2px 2px #ccc; /* 影の色 */
+}
+.title-tab2 {
+ position: absolute;
+ display: inline-block;
+ top: -28px; /*タブ調整 */
+ left: -2px; /*タブ調整 */
+ padding: 1px 10px;
+ height: 26px;
+ font-weight: bold;
+ color: #fff; /* タイトル色 */
+ background-color: #8d93c8; /* タイトル背景色 */
+ border-radius: 8px 8px 0 0;
+}
+.kakomi-box3 {
+ margin: 2em auto;
+ padding: 1em;
+ width: 90%;
+ border: 1px solid #ccc; /* 枠線 */
+ background-color: #fff; /* 背景色 */
+ box-shadow: 1px 1px 2px #ccc;
+}
+</style>
 
-<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+        <br>
+            <table class="table table-striped table-bordered">
+            <tr>
+                <th>プロジェクト名</th><td><%=@project.project_name%></td>
+            </tr>
+            <tr>
+                <th>顧客先</th><td><%=@project.customer_name%></td>
+            </tr>
+            <tr>
+                <th>納入先</th><td><%=@project.delivery_destination%></td>
+            </tr>
+            <tr>
+                <th>工事番号</th><td><%=@project.construction_number%></td>
+            </tr>
+            <tr>
+                <th>時給</th><td><%=@project.wage%></td>
+            </tr>
+            <tr>
+                <th>日付</th><td><%=@project.day%></td>
+            </tr>
+            </table>
+
+        </div>
+
 
 交通費:　<%= @driver_cost%>円<br>
 就労時間：<%= @work_hour %>時間 <br>
@@ -19,6 +70,7 @@
 材料費・雑費　<%= @material %>円<br>
 管理費:　<%= @management_cost %>円<br>
 総費用: <%= @project_all_cost %>
+
 
 <br><br>
 

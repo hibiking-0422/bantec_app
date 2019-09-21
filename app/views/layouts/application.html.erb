@@ -5,20 +5,32 @@
     <title>RailsTest</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
- 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
- 
+
+
+
   <body>
     <header>
-        <nav>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-end">
         <% if user_signed_in? %>
-            <%= link_to 'プロジェクト一覧',projects_url %>
-            <%= link_to '集計',searches_url %>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+            <%= link_to 'プロジェクト一覧',projects_url, class: "nav-item nav-link active"%>
+            <%= link_to '集計',searches_url, class: "nav-item nav-link active" %>　
+            <form class="form-inline">
+              <input class="form-control mr-sm-2" type="search" placeholder="検索キーワード" aria-label="検索キーワード">
+              <button class="btn btn-outine-success my-2 my-sm-0" type="submit">検索</button>　　
+            <div class="btn-group">
+             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">メニュー</button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item " %>
+            </div>
+        </div>
         <% else %>
-            <%= link_to '新規登録', new_user_registration_path %>
-            <%= link_to 'ログイン', new_user_session_path %>
+            <%= link_to '新規登録', new_user_registration_path, class: "nav-item nav-link active" %>
+            <%= link_to 'ログイン', new_user_session_path, class: "nav-item nav-link active" %>
             <% end %>
         </nav>
     </header>
