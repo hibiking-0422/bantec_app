@@ -55,8 +55,7 @@ class Work < ApplicationRecord
         search_works = Work.where(day: start_date..end_date)
 
         search_works.each do |work|
-            project = Project.find(work.project_id)
-            sum += work.working_hour *  project.wage
+            sum += work.working_hour *  work.wage
         end
         return sum
     end
