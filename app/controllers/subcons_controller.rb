@@ -14,7 +14,7 @@ class SubconsController < ApplicationController
     if subcon.save
       redirect_to subcons_path(project_id: params[:subcon][:project_id])
     else
-      render 'new'
+      redirect_to subcons_path(project_id: params[:subcon][:project_id])
     end
   end
   
