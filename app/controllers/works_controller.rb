@@ -39,6 +39,6 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:worker,:working_hour,:day,:project_id)
+    params.require(:work).permit(:worker,:working_hour,:day,:wage,:project_id)
   end
 end

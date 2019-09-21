@@ -2,6 +2,7 @@
 <% @works.each do |work|%>
 従業員名:　<%= work.worker%><br>
 就労時間：　<%= work.working_hour %>時間<br>
+時給:   <%= work.wage %><br>
 日付:　<%=work.day%><br>
 <%=link_to "労務費編集", edit_work_url(work.id,:project_id => @project.id)%>　<%=link_to "削除", delete_work_path(work.id), method: :delete %><br>
 <% end %>

@@ -2,6 +2,8 @@
 
     <%= f.select :worker, ["前島","内田","山口"], :prompt => "選択してください" %>
 
+    <%= f.select :wage, [["内",2500],["外","3800"]], :prompt => "選択してください" %>
+
     <%= f.label :working_hour,"就労時間" %>
     <%= f.number_field :working_hour %>
 

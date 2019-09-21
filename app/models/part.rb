@@ -32,4 +32,18 @@ class Part < ApplicationRecord
         end
         return sum
     end
+
+    def self.search_vender(start_date,end_date,vender)
+        if vender.present?    
+            sum = 0
+            search_parts = Part.where(day: start_date..end_date).where(vender: vender)
+
+            search_parts.each do |part|
+                sum += part.unit_price * part.volume
+            end
+                return sum
+        else
+            return nil
+        end
+    end
 end

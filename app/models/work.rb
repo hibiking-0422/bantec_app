@@ -2,20 +2,23 @@ class Work < ApplicationRecord
     belongs_to :project
 
     def all_hour
-        @sum = 0
+        sum = 0
         @works.each do |work|
-            @sum += work.working_hour
+            sum += work.working_hour
         end
-        return @sum
+        return sum
     end
 
-    def set(project_id,wage)
+    def set(project_id)
         @works = Work.where(project_id: project_id)
-        @wage = wage
     end
 
     def all_cost
-        return @sum * @wage
+        cost = 0
+            @works.each do |work|
+                cost += work.working_hour * work.wage
+            end
+        return cost
     end
 
     def piece_workers
@@ -27,7 +30,7 @@ class Work < ApplicationRecord
             arry2 = []
             @works.each do |work|
                 if(worker == work.worker) then
-                    cost += work.working_hour * @wage
+                    cost += work.working_hour * work.wage
                 end
             end
             arry1.push(arry2.push(worker,cost))
@@ -41,8 +44,7 @@ class Work < ApplicationRecord
 
         if works.present? then
            works.each do |work|
-               project = Project.find(work.project_id)
-               sum += work.working_hour * project.wage
+               sum += work.working_hour * work.wage
            end
         end
         return sum

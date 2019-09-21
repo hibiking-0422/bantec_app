@@ -14,20 +14,25 @@
 <% if @end_date.present? %>
 終了日:<%= @end_date %><br>
 <% end %>
+<% if @search_vender_costs.nil? %>
 <%= @search_drivers %><br>
 <%= @search_works %><br>
 <%= @search_subcons %><br>
 <%= @search_parts %><br>
 <%= @search_materials%><br>
 <%= @search_management_costs %><br>
-<%= @search_all_costs %>
-
-
+<%= @search_all_costs %><br>
+<% else %>
+<%= @search_vender%><br>
+<%= @search_vender_costs %>
+<% end %>
 
 <%= form_tag(searches_url, method: :get) do %>
     期間の開始日
     <%= date_field_tag 'start_date',nil %>
     期間の終了日
     <%= date_field_tag 'end_date', nil %>
+    仕入先
+    <%= text_field_tag :search_vender %>
   <%= submit_tag "検索" %>
 <% end %>

@@ -25,6 +25,8 @@ class SearchesController < ApplicationController
 
     @search_all_costs = @search_drivers + @search_works + @search_subcons + @search_parts + @search_materials + @search_management_costs
 
-
+    #仕入先検索
+    @search_vender = params[:search_vender]
+    @search_vender_costs = Part.search_vender(@start_date,@end_date,@search_vender)
   end
 end

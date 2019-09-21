@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
     @driver_cost = drivers.all_cost
 
     works = Work.new
-    works.set(params[:id],@project.wage)
+    works.set(params[:id])
     @work_hour = works.all_hour
     @piece_workers = works.piece_workers
     @work_cost = works.all_cost
@@ -41,6 +41,8 @@ class ProjectsController < ApplicationController
     
     @material = @parts_cost * 0.08
     @management_cost = (@work_cost + @parts_cost) * 0.03
+
+    @project_all_cost = @driver_cost + @work_cost + @subcons_cost + @parts_cost + @material + @management_cost
   end
 
   def edit
