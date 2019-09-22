@@ -1,38 +1,73 @@
-<h1>集計</h1><br><br>
+<div align="center">
+<h2>総集計</h2>
+<div class="flame-search">
+<table class="table-show">
+  <tr>
+    <th>総交通費</th><td><%= @drivers_cost %>円</td><th>総労務費</th><td><%= @works_cost %>円</td>
+  </tr>
+  <tr>
+    <th>外注費</th><td><%= @subcons_cost %>円</td><th>部品</th><td><%= @parts_cost %>円</td>
+  </tr>
+  <tr>
+    <th>消耗品・雑費</th><td><%= @materials %>円</td><th>管理費</th><td><%= @management_costs %>円</td>
+  </tr>
+</table>
+<h1>総合計　<%= @all_cost %>円</h1>
+</div>
+</div>
 
-<h2>総集計</h2><br>
-総交通費<%= @drivers_cost %>円<br>
-総労務費<%= @works_cost %>円<br>
-外注費<%= @subcons_cost %>円<br>
-部品:<%= @parts_cost %>円<br>
-消耗品・雑費<%= @materials %>円<br>
-管理費<%= @management_costs %>円<br>
-総合計<%= @all_cost %>円<br>
+<hr>
+
+<div class="box1">
+  <%= form_tag(searches_url, method: :get) do %>
+      期間の開始日:
+      <%= date_field_tag 'start_date',nil %><br><br>
+
+      期間の終了日:
+      <%= date_field_tag 'end_date', nil %><br><br>
+
+      <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
+        <a style="cursor:pointer;">▼ 仕入先集計</a>
+      </div>
+      <div id="open" style="display:none;clear:both;">
+      <br>
+      仕入先:
+          <%= text_field_tag :search_vender %><br>
+      </div>
+      <br><%= submit_tag "集計" %>
+  <% end %>
+</div>
+</div>
+
+<div class="flame-ans">
+<div class="date">
 <% if @start_date.present? %>
-開始日:<%= @start_date %><br>
+開始日:<%= @start_date %>　～
 <% end %>
 <% if @end_date.present? %>
-終了日:<%= @end_date %><br>
+　終了日:<%= @end_date %>
 <% end %>
-<% if @search_vender_costs.nil? %>
-<%= @search_drivers %><br>
-<%= @search_works %><br>
-<%= @search_subcons %><br>
-<%= @search_parts %><br>
-<%= @search_materials%><br>
-<%= @search_management_costs %><br>
-<%= @search_all_costs %><br>
-<% else %>
-<%= @search_vender%><br>
-<%= @search_vender_costs %>
-<% end %>
+</div>
 
-<%= form_tag(searches_url, method: :get) do %>
-    期間の開始日
-    <%= date_field_tag 'start_date',nil %>
-    期間の終了日
-    <%= date_field_tag 'end_date', nil %>
-    仕入先
-    <%= text_field_tag :search_vender %>
-  <%= submit_tag "検索" %>
+<% if @search_vender_costs.nil? %>
+<table class="table-show">
+  <tr>
+    <th>交通費</th><td><%= @search_drivers %>円</td><th>労務費</th><td><%= @search_works %>円</td>
+  </tr>
+  <tr>
+    <th>外注費</th><td><%= @search_subcons %>円</td><th>部品</th><td><%= @search_parts %>円</td>
+  </tr>
+  <tr>
+    <th>消耗品・雑費</th><td><%= @search_materials%>円</td><th>管理費</th><td><%= @search_management_costs %>円</td>
+  </tr>
+</table>
+<div class="center">
+  <h1>合計　<%= @search_all_costs %>円</h1>
+</div>
+<% else %>
+<div class="center">
+<br><br>
+<h2><%= @search_vender%></h2>
+<h2><%= @search_vender_costs %>円</h2>
 <% end %>
+</div>
