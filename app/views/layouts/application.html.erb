@@ -7,19 +7,28 @@
     <%= csp_meta_tag %>
  
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
  
   <body>
     <header>
-        <nav>
-        <% if user_signed_in? %>
-            <%= link_to 'プロジェクト一覧',projects_url %>
-            <%= link_to '集計',searches_url %>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <% else %>
-            <%= link_to '新規登録', new_user_registration_path %>
-            <%= link_to 'ログイン', new_user_session_path %>
+        <nav class="global-nav">
+          <ul>
+           <div class="image"><%= image_tag 'bantec.png', :size =>'85x75'%></div>
+           <% if user_signed_in? %>
+            <li class="nav-item" ><%= link_to 'プロジェクト一覧',projects_url %></li>
+            <li class="nav-item" ><%= link_to '集計',searches_url %></li>
+            <li class="nav-item" ><%= link_to '検索' %></li>
+            <% if false %>
+              <div class="logout"><li class="nav-item" ><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li></div>
             <% end %>
+        <% else %>
+          <div class="logout">
+            <li class="nav-item" ><%= link_to '新規登録', new_user_registration_path %></li>
+            <li class="nav-item" ><%= link_to 'ログイン', new_user_session_path %></li>
+          </div>
+            <% end %>
+          </ul>
         </nav>
     </header>
  

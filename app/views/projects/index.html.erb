@@ -1,11 +1,21 @@
-<table>
+<div class="center"><%= link_to "プロジェクト作成", {controller: :projects, action: :new}, class: "btn-circle-stitch"%></div>
 <% @projects.each do |project|%>
-    <tr>
-        <td><%=project.id%></td>
-        <td><%=link_to project.project_name, project_url(project.id)%></td>
-    </tr>
+<div class="card">
+        <h1 class="head"><%= project.project_name %></h1>
+        <br>
+        <table>
+            <tr>
+                <th>顧客先</th><td><%= project.customer_name %></td>
+            </tr>
+            <tr>
+                <th>納入先</th><td><%= project.delivery_destination %></td>
+            </tr>
+            <tr>
+                <th>作成日</th><td><%= project.day %></td>
+            </tr>
+        </table>
+        <div class="right"><%=link_to "詳細", project_url(project.id), class:"btn-flat-border"%></div>
+</div>
 <%end%>
-</table>
-
 <br>
-<%= link_to "プロジェクト作成", {controller: :projects, action: :new}%>
+
