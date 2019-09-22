@@ -1,7 +1,7 @@
 class DriversController < ApplicationController
   def index
     @project = Project.find(params[:project_id])
-    @drivers = @project.driver
+    @drivers = @project.driver.order(day: "DESC")
   end
 
   def new

@@ -1,3 +1,72 @@
 // Place all the styles related to the works controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.table-blue-work{
+    width: 1200px;
+    border-collapse:separate;
+    border-spacing: 0;
+  }
+  
+  .table-blue-work th:first-child{
+    border-radius: 5px 0 0 0;
+  }
+  
+  .table-blue-work th:last-child{
+    border-radius: 0 5px 0 0;
+    border-right: 1px solid #3c6690;
+  }
+  
+  .table-blue-work th{
+    text-align: center;
+    color:white;
+    background: linear-gradient(#829ebc,#225588);
+    border-left: 1px solid #3c6690;
+    border-top: 1px solid #3c6690;
+    border-bottom: 1px solid #3c6690;
+    box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+    width: 15%;
+    padding: 10px 0;
+  }
+  
+  .table-blue-work td{
+    text-align: center;
+    border-left: 1px solid #a8b7c5;
+    border-bottom: 1px solid #a8b7c5;
+    border-top:none;
+    box-shadow: 0px -3px 5px 1px #eee inset;
+    width: 15%;
+    padding: 10px 0;
+  }
+
+  .table-blue-work td:last-child{
+    border-right: 1px solid #a8b7c5;
+  }
+  
+  .table-blue-work tr:last-child td:first-child {
+    border-radius: 0 0 0 5px;
+  }
+  
+  .table-blue-work tr:last-child td:last-child {
+    border-radius: 0 0 5px 0;
+  }
+
+  .simple_square_work {
+	display: block;
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #fff;
+	border-radius: 30px;
+	border:1px solid #1B1B1B;
+	-webkit-backface-visibility: hidden; 
+	-moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.simple_square_work:hover {
+	 cursor: pointer;
+	 text-decoration: none;
+	-webkit-animation: simple_square_btn4 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	-moz-animation: simple_square_btn4 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: simple_square_btn4 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}

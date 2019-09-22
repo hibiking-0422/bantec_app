@@ -1,7 +1,7 @@
 class PartsController < ApplicationController
   def index
     @project = Project.find(params[:project_id])
-    @parts = @project.part
+    @parts = @project.part.order(day: "DESC")
 
     if params[:count].present?
       @count = params[:count]
