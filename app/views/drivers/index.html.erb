@@ -1,9 +1,17 @@
-<h1>交通費一覧</h1>
-<% @drivers.each do |driver|%>
-交通費:　<%= driver.driver_cost%>円<br>
-日付:　<%=driver.day%><br>
-<%=link_to "交通費編集", edit_driver_url(driver.id,:project_id => @project.id)%>　<%=link_to "削除", delete_driver_path(driver.id), method: :delete %><br>
-<% end %>
-<%=link_to "交通費追加", new_driver_url(:project_id => @project.id)%>
+<%=link_to "←", project_url(@project.id), class: "btn-back" %>
+<h1 class="midashi">交通費一覧</h1>
+<%=link_to "交通費追加", new_driver_url(:project_id => @project.id), class: "add-btn"%>
 
-<br><%=link_to "戻る", project_url(@project.id)%>
+<table align="center" class="table-blue">
+    <tr>
+        <th>交通費</th><th>日付</th><th>変更</th><th>削除</th>
+    </tr>
+<% @drivers.each do |driver|%>
+    <tr>
+        <td><%= driver.driver_cost%>円</td>
+        <td><%=driver.day%></td>
+        <td><%=link_to "編集", edit_driver_url(driver.id,:project_id => @project.id), class: "simple_square_btn4"%></td>
+        <td><%=link_to "削除", delete_driver_path(driver.id), method: :delete , class: "simple_square_btn4"%></td>
+    </tr>
+<% end %>
+</table>

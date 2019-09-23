@@ -1,7 +1,7 @@
 class SubconsController < ApplicationController
   def index
     @project = Project.find(params[:project_id])
-    @subcons = @project.subcon
+    @subcons = @project.subcon.order(day: "DESC")
   end
 
   def new

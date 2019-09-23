@@ -1,23 +1,23 @@
+<div class="center">
 <%= form_for @project do |f| %>
     <%= f.label :project_name,"プロジェクト名" %>
-    <%= f.text_field :project_name %><br>
+    <%= f.text_field :project_name %><br><br>
 
     <%= f.label :customer_name,"顧客先" %>
-    <%= f.text_field :customer_name %><br>
+    <%= f.text_field :customer_name %><br><br>
 
     <%= f.label :delivery_destination,"納入先" %>
-    <%= f.text_field :delivery_destination %><br>
+    <%= f.text_field :delivery_destination %><br><br>
 
     <%= f.label :construction_number,"工事番号" %>
-    <%= f.number_field :construction_number %>
+    <%= f.number_field :construction_number %><br><br>
 
     <%= f.label :day,"日付" %>
-    <%= f.date_select :day %>
+    <%= f.date_select :day %><br><br>
     <% if @project.id.nil? %>
         <%= f.submit "作成" %>
     <% else %>
-    <%= f.label :wage,"時給" %>
-    <%= f.number_field :wage %>
         <%= f.submit "修正" %>
     <% end %>
 <% end %>
+</div>

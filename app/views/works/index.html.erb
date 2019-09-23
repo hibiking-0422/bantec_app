@@ -1,11 +1,19 @@
-<h1>労務費一覧</h1>
-<% @works.each do |work|%>
-従業員名:　<%= work.worker%><br>
-就労時間：　<%= work.working_hour %>時間<br>
-時給:   <%= work.wage %><br>
-日付:　<%=work.day%><br>
-<%=link_to "労務費編集", edit_work_url(work.id,:project_id => @project.id)%>　<%=link_to "削除", delete_work_path(work.id), method: :delete %><br>
-<% end %>
-<%=link_to "労務費追加", new_work_url(:project_id => @project.id)%>
+<%=link_to "←", project_url(@project.id), class: "btn-back" %>
+<h1 class="midashi">労務費一覧</h1>
+<%=link_to "労務費追加", new_work_url(:project_id => @project.id), class: "add-btn"%>
 
-<br><br><%=link_to "戻る", project_url(@project.id)%>
+<table align="center" class="table-blue-work">
+    <tr>
+        <th>従業員名</th><th>就労時間</th><th>時給</th><th>日付</th><th>変更</th><th>削除</th>
+    </tr>
+<% @works.each do |work|%>
+    <tr>
+        <td><%= work.worker%></td>
+        <td><%= work.working_hour %>時間</td>
+        <td><%= work.wage %></td>
+        <td><%=work.day%></td>
+        <td><%=link_to "編集", edit_work_url(work.id,:project_id => @project.id), class: "simple_square_work"%></td>　
+        <td><%=link_to "削除", delete_work_path(work.id), method: :delete, class: "simple_square_work" %></td>
+    </tr>
+<% end %>
+</table>

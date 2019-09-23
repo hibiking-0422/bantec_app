@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.where(user_id: current_user.id)
+    @projects = Project.where(user_id: current_user.id).order(day: "DESC")
   end
 
   def new
@@ -10,7 +10,6 @@ class ProjectsController < ApplicationController
   def create
     project = Project.new(project_params)
     project.user_id = current_user.id
-    project.wage = set_default_wage
     if project.save
       redirect_to action: 'index'
     else
@@ -64,10 +63,6 @@ class ProjectsController < ApplicationController
   private
   
   def project_params
-    params.require(:project).permit(:project_name,:customer_name,:delivery_destination,:construction_number,:wage,:user_id,:day)
-  end
-
-  def set_default_wage
-    return 2500
+    params.require(:project).permit(:project_name,:customer_name,:delivery_destination,:construction_number,:user_id,:day)
   end
 end

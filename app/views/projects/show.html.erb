@@ -1,29 +1,59 @@
-プロジェクト名:　<%=@project.project_name%><br>
-顧客先:　<%=@project.customer_name%><br>
-納入先:　<%=@project.delivery_destination%><br>
-工事番号:　<%=@project.construction_number%><br>
-時給:　<%=@project.wage%><br>
-日付:　<%=@project.day%><br>
-<%=@project.id%>
+<h1 class="center">プロジェクト詳細</h1>
+<div class="gear">
+    <%=link_to  edit_project_url(@project.id) do%>
+        <%= image_tag "gear.png", :size =>'85x80' %>
+    <% end %>
+</div>
 
+<div class="items">
+<div class="item">
+<table class="table-info">
+    <tr>
+        <th>プロジェクト名</th><td><%=@project.project_name%></td>
+    </tr>
+    <tr>
+        <th>顧客先</th><td><%=@project.customer_name%></td>
+    </tr>
+    <tr>
+        <th>納入先</th><td><%=@project.delivery_destination%></td>
+    </tr>    
+        <th>工事番号</th><td><%=@project.construction_number%></td>
+    <tr>
+        <th>日付</th><td><%=@project.day%></td>
+    </tr>
+</table>
+</div>
+
+<div class="item">
+<div class="flame">
+<table class="table-show">
+    <tr>
+        <th>交通費</th><td><%= @driver_cost%>円</td><th>労務費</th><td><%= @work_cost %>円</td>
+    </tr>
+    <tr>
+        <th>外注費</th><td><%= @subcons_cost %>円</td><th>部品</th><td><%= @parts_cost %>円</td>
+    </tr>
+    <tr>
+        <th>材料費・雑費</th><td><%= @material %>円</td><th>管理費</th><td><%= @management_cost %>円</td>
+    </tr>
+    <tr>
+        <th>前島</th><td><%= @piece_workers[0] %>円</td><th>内田</th><td><%= @piece_workers[1] %>円</td>
+    <tr>
+        <th>山口</th><td><%= @piece_workers[2] %>円<th></th><td></td>
+    </tr>
+</table>
+<h1 class="center">総費用　   <%= @project_all_cost %>円</h1>
+</div>
+</div>
+
+</div>
 <br><br>
 
-交通費:　<%= @driver_cost%>円<br>
-就労時間：<%= @work_hour %>時間 <br>
-労務費：　<%= @work_cost %>円<br>
-<% @piece_workers.each do |worker| %>
-    <%= worker[0] %>:　<%= worker[1] %>円<br>
-<% end %>
-外注費：　<%= @subcons_cost %>円<br>
-部品:　<%= @parts_cost %><br>
-材料費・雑費　<%= @material %>円<br>
-管理費:　<%= @management_cost %>円<br>
-総費用: <%= @project_all_cost %>
-
-<br><br>
-
-<%=link_to "編集", edit_project_url(@project.id)%><br>
-<%=link_to "交通費一覧", drivers_url(:project_id => @project.id)%><br>
-<%=link_to "労務費一覧", works_url(:project_id => @project.id)%><br>
-<%=link_to "外注費一覧", subcons_url(:project_id => @project.id)%><br>
-<%=link_to "部品一覧", parts_url(:project_id => @project.id)%><br>
+<div class="button-items">
+　
+<%=link_to "交通費一覧", drivers_url(:project_id => @project.id), class: "btn-open"%><br>
+<%=link_to "労務費一覧", works_url(:project_id => @project.id), class: "btn-open"%><br>
+<%=link_to "外注費一覧", subcons_url(:project_id => @project.id), class: "btn-open"%><br>
+<%=link_to "部品一覧", parts_url(:project_id => @project.id), class: "btn-open"%><br>
+</div>
+<br><br><br>

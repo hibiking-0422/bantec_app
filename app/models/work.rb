@@ -27,13 +27,12 @@ class Work < ApplicationRecord
         workers = ["前島","内田","山口"]
         workers.each do |worker|
             cost = 0
-            arry2 = []
             @works.each do |work|
                 if(worker == work.worker) then
                     cost += work.working_hour * work.wage
                 end
             end
-            arry1.push(arry2.push(worker,cost))
+            arry1.push(cost)
         end
         return arry1
     end
@@ -55,8 +54,7 @@ class Work < ApplicationRecord
         search_works = Work.where(day: start_date..end_date)
 
         search_works.each do |work|
-            project = Project.find(work.project_id)
-            sum += work.working_hour *  project.wage
+            sum += work.working_hour *  work.wage
         end
         return sum
     end

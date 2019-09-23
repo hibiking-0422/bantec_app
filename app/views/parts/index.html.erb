@@ -1,17 +1,29 @@
-<h1>部品一覧</h1><br><br>
+<%=link_to "←", project_url(@project.id), class: "btn-back" %>
+<h1 class="midashi">部品一覧</h1>
+<%=link_to "部品追加", new_part_url(:project_id => @project.id), class: "add-btn"%>
+
+<div align="center">
 <% if @count.present? %>
     <%= @count %>件の部品を追加しました！<br><br>
 <% end %>
+</div>
 
+<table align="center" class="table-blue-part">
+    <tr>
+        <th>部品名</th><th>単価</th><th>数量</th><th>メーカー</th><th>仕入先</th><th>日付</th><th>変更</th><th>削除</th>
+    </tr>
 <% @parts.each do |part|%>
-部品名:　<%= part.part_name%><br>
-単価：　<%= part.unit_price %><br>
-数量：　<%= part.volume %><br>
-メーカー：　<%= part.maker %><br>
-仕入先：　<%= part.vender %>
-日付:　<%=part.day%><br>
-<%=link_to "部品編集", edit_part_url(part.id,:project_id => @project.id)%>　<%=link_to "削除", delete_part_path(part.id), method: :delete %><br>
+    <tr>
+        <td><%= part.part_name%></td>
+        <td><%= part.unit_price %></td>
+        <td><%= part.volume %></td>
+        <td><%= part.maker %></td>
+        <td><%= part.vender %></td>
+        <td><%=part.day%></td>
+        <td><%=link_to "編集", edit_part_url(part.id,:project_id => @project.id), class: "simple_square_part"%></td>
+        <td><%=link_to "削除", delete_part_path(part.id), method: :delete, class: "simple_square_part"%></td>
+    </tr>
 <% end %>
-<%=link_to "部品追加", new_part_url(:project_id => @project.id)%>
+</table>
 
-<br><br><%=link_to "戻る", project_url(@project.id)%>
+

@@ -1,19 +1,23 @@
+<div class="center">
 <%= form_for @work do |f| %>
 
-    <%= f.select :worker, ["前島","内田","山口"], :prompt => "選択してください" %>
+    <%= f.label :worker, "従業員" %>
+    <%= f.select :worker, ["前島","内田","山口"], :prompt => "選択してください" %><br><br>
 
-    <%= f.select :wage, [["内",2500],["外","3800"]], :prompt => "選択してください" %>
+    <%= f.label :wwage, "仕事場所" %>
+    <%= f.select :wage, [["内",2500],["外","3800"]], :prompt => "選択してください" %><br><br>
 
     <%= f.label :working_hour,"就労時間" %>
-    <%= f.number_field :working_hour %>
+    <%= f.number_field :working_hour %>時間<br><br>
 
     <%= f.label :day,"日付" %>
-    <%= f.date_select :day %>
+    <%= f.date_select :day %><br><br>
     
     <%= f.hidden_field :project_id, :value => params[:project_id] %>
     <% if @work.id.nil? %>
-        <%= f.submit "作成" %>
+        <%= f.submit "追加" %>
     <% else %>
         <%= f.submit "修正" %>
     <% end %>
 <% end %>
+</div>

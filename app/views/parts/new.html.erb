@@ -1,19 +1,25 @@
+<%= link_to '←', :back, class: "btn-back" %> 
+<h1 class="midashi">部品追加</h1>
 
 
 <%= form_tag({ :controller => 'parts', :action => 'create' },{ :method => :post}) do %>
-
-<% 10.times do %>
-部品名:  <%= text_field_tag 'parts[]' %><br>
-メーカー:  <%= text_field_tag  'parts[]' %><br>
-仕入先:  <%= text_field_tag  'parts[]' %><br>
-単価  <%= number_field_tag  'parts[]' %><br>
-数量  <%= number_field_tag  'parts[]' %><br>
-日付  <%= date_field_tag  'parts[]' %><br>
-
-<%= hidden_field_tag :project_id, params[:project_id] %>
+<table align="center">
+    <tr>
+        <th>部品名</th><th>メーカー</th><th>仕入先</th><th>単価</th><th>数量</th><th>日付</th>
+    </tr>
+  <% 10.times do %>
+    <tr>
+      <td ><%= text_field_tag 'parts[]' %></td>
+      <td><%= text_field_tag  'parts[]' %></td>
+      <td><%= text_field_tag  'parts[]' %></td>
+      <td><%= number_field_tag  'parts[]' %></td>
+      <td><%= number_field_tag  'parts[]' %></td>
+      <td><%= date_field_tag  'parts[]' %></td>
+    </tr>
+    <%= hidden_field_tag :project_id, params[:project_id] %>
 <% end %>
-  <%= submit_tag %>
+</table>
+<div align="center">
+  <br><%= submit_tag "追加"%>
+</div>
 <% end %>
-
-
-

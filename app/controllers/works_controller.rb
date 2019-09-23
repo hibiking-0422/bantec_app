@@ -1,7 +1,7 @@
 class WorksController < ApplicationController
   def index
     @project = Project.find(params[:project_id])
-    @works = @project.work
+    @works = @project.work.order(day: "DESC")
   end
 
   def new

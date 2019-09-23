@@ -1,21 +1,22 @@
+<div class="center">
 <%= form_for @part do |f| %>
     <%= f.label :part_name,"部品名" %>
-    <%= f.text_field :part_name %><br>
+    <%= f.text_field :part_name %><br><br>
 
     <%= f.label :unit_price,"単価" %>
-    <%= f.number_field :unit_price %>
+    <%= f.number_field :unit_price %><br><br>
 
     <%= f.label :volume,"数量" %>
-    <%= f.number_field :volume %>
+    <%= f.number_field :volume %><br><br>
 
     <%= f.label :maker,"メーカー" %>
-    <%= f.text_field :maker %><br>
+    <%= f.text_field :maker %><br><br>
 
     <%= f.label :vender,"仕入先" %>
-    <%= f.text_field :vender %><br>
+    <%= f.text_field :vender %><br><br>
 
     <%= f.label :day,"日付" %>
-    <%= f.date_select :day %>
+    <%= f.date_select :day %><br><br>
 
     <%= f.hidden_field :project_id, :value => params[:project_id] %>
 
@@ -25,3 +26,4 @@
         <%= f.submit "修正" %>
     <% end %>
 <% end %>
+</div>
