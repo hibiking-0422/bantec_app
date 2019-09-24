@@ -14,7 +14,7 @@
     <header>
         <nav class="global-nav">
           <ul>
-           <div class="image"><%= image_tag 'bantec.png', :size =>'85x75'%></div>
+           <div class="image"><%= link_to image_tag('bantec.png', :size =>'85x75'),root_path%></div>
            <% if user_signed_in? %>
             <li class="nav-item" ><%= link_to 'プロジェクト一覧',projects_url %></li>
             <li class="nav-item" ><%= link_to '集計',searches_url %></li>
