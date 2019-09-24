@@ -19,9 +19,9 @@
             <li class="nav-item" ><%= link_to 'プロジェクト一覧',projects_url %></li>
             <li class="nav-item" ><%= link_to '集計',searches_url %></li>
             <li class="nav-item" ><%= link_to '検索' %></li>
-            <% if false %>
+
               <div class="logout"><li class="nav-item" ><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li></div>
-            <% end %>
+            
         <% else %>
           <div class="logout">
             <li class="nav-item" ><%= link_to '新規登録', new_user_registration_path %></li>
