@@ -1,23 +1,26 @@
 <div class="center">
 <%= form_for @part do |f| %>
-    <%= f.label :part_name,"部品名" %>
-    <%= f.text_field :part_name %><br><br>
-
-    <%= f.label :unit_price,"単価" %>
-    <%= f.number_field :unit_price %><br><br>
-
-    <%= f.label :volume,"数量" %>
-    <%= f.number_field :volume %><br><br>
-
-    <%= f.label :maker,"メーカー" %>
-    <%= f.text_field :maker %><br><br>
-
-    <%= f.label :vender,"仕入先" %>
-    <%= f.text_field :vender %><br><br>
-
-    <%= f.label :day,"日付" %>
-    <%= f.date_select :day %><br><br>
-
+    <table   align="center"  class="table-form">
+    <tr>
+        <th><%= f.label :part_name,"部品名" %></th><td><%= f.text_field :part_name %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :unit_price,"単価" %></th><td><%= f.number_field :unit_price %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :volume,"数量" %></th><td><%= f.number_field :volume %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :maker,"メーカー" %></th><td><%= f.text_field :maker %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :vender,"仕入先" %></th><td><%= f.text_field :vender %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :day,"日付" %></th><td><%= f.date_select :day %></td>
+    </tr>
+</table>
+<br>
     <%= f.hidden_field :project_id, :value => params[:project_id] %>
 
     <% if @part.id.nil? %>

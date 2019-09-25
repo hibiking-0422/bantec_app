@@ -1,23 +1,29 @@
 <div class="center">
 <%= form_for @project do |f| %>
-    <%= f.label :project_name,"プロジェクト名" %>
-    <%= f.text_field :project_name %><br><br>
-
-    <%= f.label :customer_name,"顧客先" %>
-    <%= f.text_field :customer_name %><br><br>
-
-    <%= f.label :delivery_destination,"納入先" %>
-    <%= f.text_field :delivery_destination %><br><br>
-
-    <%= f.label :construction_number,"工事番号" %>
-    <%= f.number_field :construction_number %><br><br>
-
-    <%= f.label :day,"日付" %>
-    <%= f.date_select :day %><br><br>
+<table  align="center" class="table-form">
+    <tr>
+        <th><%= f.label :project_name,"プロジェクト名" %></th><td><%= f.text_field :project_name %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :customer_name,"顧客先" %></th><td><%= f.text_field :customer_name %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :delivery_destination,"納入先" %></th><td><%= f.text_field :delivery_destination %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :construction_number,"工事番号" %></th><td><%= f.number_field :construction_number %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :day,"日付" %></th><td><%= f.date_select :day %></td>
+    </tr>
+</table>
+<br>
     <% if @project.id.nil? %>
         <%= f.submit "作成" %>
     <% else %>
         <%= f.submit "修正" %>
     <% end %>
 <% end %>
+</div>
+</div>
 </div>

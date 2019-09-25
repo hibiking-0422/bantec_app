@@ -1,12 +1,14 @@
 <div class="center">
 <%= form_for @driver do |f| %>
-
-    <%= f.label :driver_cost,"交通費:" %>
-    <%= f.number_field :driver_cost %><br><br>
-
-    <%= f.label :day,"日付:" %>
-    <%= f.date_select :day %><br><br>
-    
+<table  align="center" class="table-form">
+    <tr>
+        <th><%= f.label :driver_cost,"交通費" %></th><td><%= f.number_field :driver_cost %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :day,"日付" %></th><td><%= f.date_select :day %></td>
+    </tr>
+</table>
+<br>
     <%= f.hidden_field :project_id, :value => params[:project_id] %>
     <% if @driver.id.nil? %>
         <%= f.submit "追加" %>

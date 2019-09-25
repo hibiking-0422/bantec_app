@@ -1,4 +1,65 @@
-<div class="center"><%= link_to "プロジェクト作成", {controller: :projects, action: :new}, class: "btn-circle-stitch"%></div>
+<div class="project-make"><%= link_to "プロジェクト作成", {controller: :projects, action: :new}, class: "btn-circle-stitch"%></div>
+
+<br>
+<br>
+
+<div class="button-items">
+    <div class="button-item">
+        <%= link_to '前',projects_url(prev_date: @date), class: "cp_btn " %>
+    </div>
+    <div class="button-item">
+        <%= link_to '次',projects_url(next_date: @date), class: "cp_btn" %>
+    </div>
+</div>
+
+<hr>
+<div class="project-items">
+<div class="project-item">
+<div class="center"><h2><%= @reprev_date.year %>年<%= @reprev_date.month %>月</h2></div>
+<% @reprev_projects.each do |project|%>
+<div class="card">
+        <h1 class="head"><%= project.project_name %></h1>
+        <br>
+        <table class="table-index">
+            <tr>
+                <th>顧客先</th><td><%= project.customer_name %></td>
+            </tr>
+            <tr>
+                <th>納入先</th><td><%= project.delivery_destination %></td>
+            </tr>
+            <tr>
+                <th>作成日</th><td><%= project.day %></td>
+            </tr>
+        </table>
+        <div class="right-shosai"><%=link_to "詳細", project_url(project.id), class:"btn-flat-border"%></div>
+</div>
+<%end%>
+</div>
+
+<div class="project-item">
+<div class="center"><h2><%= @prev_date.year %>年<%= @prev_date.month%>月</h2></div>
+<% @prev_projects.each do |project|%>
+<div class="card">
+        <h1 class="head"><%= project.project_name %></h1>
+        <br>
+        <table class="table-index">
+            <tr>
+                <th>顧客先</th><td><%= project.customer_name %></td>
+            </tr>
+            <tr>
+                <th>納入先</th><td><%= project.delivery_destination %></td>
+            </tr>
+            <tr>
+                <th>作成日</th><td><%= project.day %></td>
+            </tr>
+        </table>
+        <div class="right-shosai"><%=link_to "詳細", project_url(project.id), class:"btn-flat-border"%></div>
+</div>
+<%end%>
+</div>
+
+<div class="project-item">
+<div class="center"><h2><%= @date.year %>年<%= @date.month %>月</h2></div>
 <% @projects.each do |project|%>
 <div class="card">
         <h1 class="head"><%= project.project_name %></h1>
@@ -14,8 +75,11 @@
                 <th>作成日</th><td><%= project.day %></td>
             </tr>
         </table>
-        <div class="right"><%=link_to "詳細", project_url(project.id), class:"btn-flat-border"%></div>
+        <div class="right-shosai"><%=link_to "詳細", project_url(project.id), class:"btn-flat-border"%></div>
 </div>
 <%end%>
+</div>
+
+</div>
 <br>
 

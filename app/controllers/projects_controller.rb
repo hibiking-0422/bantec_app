@@ -1,6 +1,20 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.where(user_id: current_user.id).order(day: "DESC")
+    if params[:next_date].present?
+      @date = Time.parse(params[:next_date]).since(3.month)
+    elsif params[:prev_date].present?
+      @date = Time.parse(params[:prev_date]).ago(3.month)
+    else
+      @date = Time.now
+    end
+
+    @projects = Project.rangeMonth(@date,current_user.id)
+
+    @prev_date = @date.prev_month
+    @prev_projects = Project.rangeMonth(@prev_date,current_user.id)
+
+    @reprev_date = @prev_date.prev_month
+    @reprev_projects = Project.rangeMonth(@reprev_date,current_user.id)
   end
 
   def new

@@ -1,18 +1,20 @@
 <div class="center">
 <%= form_for @work do |f| %>
-
-    <%= f.label :worker, "従業員" %>
-    <%= f.select :worker, ["前島","内田","山口"], :prompt => "選択してください" %><br><br>
-
-    <%= f.label :wwage, "仕事場所" %>
-    <%= f.select :wage, [["内",2500],["外","3800"]], :prompt => "選択してください" %><br><br>
-
-    <%= f.label :working_hour,"就労時間" %>
-    <%= f.number_field :working_hour %>時間<br><br>
-
-    <%= f.label :day,"日付" %>
-    <%= f.date_select :day %><br><br>
-    
+<table  align="center"  class="table-form">
+    <tr>
+        <th><%= f.label :worker, "従業員" %></th><td><%= f.select :worker, ["前島","内田","山口"], :prompt => "選択してください" %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :wwage, "仕事場所" %></th><td><%= f.select :wage, [["内",2500],["外","3800"]], :prompt => "選択してください" %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :working_hour,"就労時間" %></th><td><%= f.number_field :working_hour %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :day,"日付" %></th><td><%= f.date_select :day %></td>
+    </tr>
+</table>
+<br>
     <%= f.hidden_field :project_id, :value => params[:project_id] %>
     <% if @work.id.nil? %>
         <%= f.submit "追加" %>

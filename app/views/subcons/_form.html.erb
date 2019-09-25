@@ -1,14 +1,17 @@
 <div class="center">
 <%= form_for @subcon do |f| %>
-    <%= f.label :subcon_name,"外注先" %>
-    <%= f.text_field :subcon_name %><br><br>
-
-    <%= f.label :subcon_cost,"外注費" %>
-    <%= f.number_field :subcon_cost %><br><br>
-
-    <%= f.label :day,"日付" %>
-    <%= f.date_select :day %><br><br>
-
+<table align="center"  class="table-form">
+    <tr>
+        <th><%= f.label :subcon_name,"外注先" %></th><td><%= f.text_field :subcon_name %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :subcon_cost,"外注費" %></th><td><%= f.number_field :subcon_cost %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :day,"日付" %></th><td><%= f.date_select :day %></td>
+    </tr>
+</table>
+<br>
     <%= f.hidden_field :project_id, :value => params[:project_id] %>
     <% if @subcon.id.nil? %>
         <%= f.submit "追加" %>
