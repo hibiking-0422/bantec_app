@@ -28,7 +28,7 @@
 }
 .global-nav .nav-item{
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 100px;
 }
 .global-nav .nav-item a{
     display: inline-block;
@@ -41,14 +41,6 @@
     font-size: 1.3rem;
     letter-spacing: 1px;
     text-decoration:none;
-    transition: 0.15s;
-}
-.global-nav .nav-item.active a,
-.global-nav .nav-item a:hover{
-    padding: 10px; 
-    margin-bottom: 10px; 
-    border: 1px solid #333333; 
-    border-radius: 10px
 }
 
 body{
