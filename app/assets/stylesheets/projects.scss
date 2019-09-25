@@ -4,14 +4,16 @@
 
 .card{
     text-align: center;
-
+    position:relative;
     margin: 2em auto;
     padding: 1em;
-    width: 500px;
+    width: 350px;
+    height: 100;
     border: 5px solid #ccc; /* 枠線 */
     background-color: #fff; /* 背景色 */
     box-shadow: 1px 1px 2px #ccc;
 }
+
 .head{
     margin: 2em auto;
     padding: 0;
@@ -36,7 +38,7 @@
     border-bottom: 1px solid black;
 }
 
-.right{
+.right-shosai{
     text-align: right;
     position:relative;
     bottom: -10px;
@@ -260,4 +262,64 @@
         flex-direction: column;
         
       }
+}
+
+.project-items{
+  display: flex;
+  justify-content: space-between;
+}
+.project-items .project-item{
+  width: 30%;
+}
+.project-items .project-item .project-item-right{
+  position: absolute;
+  right: 150px;
+}
+.project-items .project-item .project-item-left{
+  position: absolute;
+  left: 150px;
+}
+
+
+.kakomi-maru1 {
+ margin: 2em auto;  
+ padding: 1em;
+ width: 90%; /*幅の調節*/
+ color: #666666; /*文字色*/
+ background-color: #f7f7f7; /*背景色*/
+ border: 2px solid #ccc; /*線の太さ・色*/
+ border-radius: 8px; /*角の丸み*/ 
+}
+.project-make {
+    text-align: right;
+    position: relative;
+    top: 10px;
+    right: 50px;;
+}
+
+a.cp_btn {
+	position: relative;
+	display: block;
+	width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #FFF;
+	background: #67c5ff;
+	border-bottom: 2px solid #00838F;
+	border-radius: 4px;
+	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+}
+a.cp_btn:active {
+	border-bottom: 2px solid #67c5ff;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+.button-items {
+  display: flex;
+  justify-content: space-between;
+}
+.button-items .button-item {
+      position: relative;
+
 }

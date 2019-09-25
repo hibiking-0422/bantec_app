@@ -162,3 +162,26 @@ body{
 	 transform: translate3d(0, 4px, 0);
 	 border-bottom: none;
 }
+
+
+
+
+
+.box-form {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    width: 300px;
+    font-weight: bold;
+    border: solid 3px #000000;
+}
+.box-form p {
+    margin: 0; 
+    padding: 0;
+}
+
+.table-form, th {
+  border:none;
+}
+.table-form, td {
+  border:none;
+}
