@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'hits/index'
+  get 'hits/show'
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
@@ -43,4 +45,6 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+
+  resources :hits
 end

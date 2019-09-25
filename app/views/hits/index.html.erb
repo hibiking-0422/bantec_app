@@ -1,0 +1,14 @@
+<div class="center"><h2>検索画面</h2></div>
+<div class="center">
+<%= form_tag(hits_show_url, method: :get) do %>
+    プロジェクト名<br>
+    <%= text_field_tag :project_name %>
+    <%= submit_tag "検索" %>
+<% end %>
+<br>
+<%= form_tag(hits_show_url, method: :get) do %>
+    工事番号<br>
+    <%= number_field_tag :construction_number %>
+    <%= submit_tag "検索" %>
+<% end %>
+</div>

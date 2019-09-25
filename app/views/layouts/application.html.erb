@@ -18,7 +18,7 @@
            <% if user_signed_in? %>
             <li class="nav-item" ><%= link_to 'プロジェクト一覧',projects_url %></li>
             <li class="nav-item" ><%= link_to '集計',searches_url %></li>
-            <li class="nav-item" ><%= link_to '検索' %></li>
+            <li class="nav-item" ><%= link_to '検索', hits_index_url %></li>
           <% if false%>
               <div class="logout"><li class="nav-item" ><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li></div>
           <% end %>
