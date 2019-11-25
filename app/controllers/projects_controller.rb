@@ -56,6 +56,18 @@ class ProjectsController < ApplicationController
     @management_cost = (@work_cost + @parts_cost) * 0.03
 
     @project_all_cost = @driver_cost + @work_cost + @subcons_cost + @parts_cost + @material + @management_cost
+
+    if @project.contract.nil? then
+      @project.contract = 0
+    end
+
+    if @project.cont_budget.nil? then
+      @project.cont_budget = 0
+    end
+
+    @forecast_cost = @project.contract - @project.cont_budget
+    @real_cost = @project.contract - @project_all_cost
+
   end
 
   def edit
@@ -77,6 +89,6 @@ class ProjectsController < ApplicationController
   private
   
   def project_params
-    params.require(:project).permit(:project_name,:customer_name,:delivery_destination,:construction_number,:user_id,:day)
+    params.require(:project).permit(:project_name,:customer_name,:delivery_destination,:construction_number,:user_id,:day,:contract, :cont_budget)
   end
 end

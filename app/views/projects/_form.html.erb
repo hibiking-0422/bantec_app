@@ -16,6 +16,12 @@
     <tr>
         <th><%= f.label :day,"日付" %></th><td><%= f.date_select :day %></td>
     </tr>
+    <tr>
+        <th><%= f.label :contract, "請負金額" %></th><td><%= f.number_field :contract %></td>
+    </tr>
+    <tr>
+        <th><%= f.label :cont_budget, "原価予算" %></th><td><%= f.number_field :cont_budget %></td>
+    </tr>
 </table>
 <br>
     <% if @project.id.nil? %>
