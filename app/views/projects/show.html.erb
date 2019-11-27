@@ -1,4 +1,4 @@
-<h1 class="center">プロジェクト詳細</h1>
+<h1 class="center">詳細画面</h1>
 <div class="gear">
     <%=link_to  edit_project_url(@project.id) do%>
         <%= image_tag "gear.png", :size =>'85x80' %>
@@ -21,6 +21,38 @@
     <tr>
         <th>日付</th><td><%=@project.day%></td>
     </tr>
+    <tr>
+        <th>請負金額</th>
+        <td>
+            <% if @project.contract.nil? %>
+                0円
+            <% else %>
+                <%=@project.contract%>円
+            <% end %>
+        </td>
+    <tr>
+        <th>予想予算</th>
+        <td>
+            <% if @project.cont_budget.nil? %>
+                0円
+            <% else %>
+                <%=@project.cont_budget%>円
+            <% end %>
+        </td>
+    </tr>
+    <tr>
+        <th>予想利益</th><td><%= @forecast_cost %>円</td>
+    </tr>
+    <tr>    
+        <th>予想利益率</th><td><%= (@forecast_cost / @project.contract.to_f) * 100 %>%</td>   
+    </tr>
+    <tr>    
+        <th>実利益</th><td><%= @real_cost %>円</td>   
+    </tr>
+    <tr>    
+        <th>実利益率</th><td><%= (@real_cost / @project.contract.to_f) * 100 %>%</td>   
+    </tr>
+ 
 </table>
 </div>
 

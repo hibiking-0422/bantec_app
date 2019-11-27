@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_21_191252) do
+ActiveRecord::Schema.define(version: 2019_11_25_192543) do
 
   create_table "drivers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "driver_cost"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 2019_09_21_191252) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "wage"
     t.date "day"
+    t.integer "contract"
+    t.integer "cont_budget"
+    t.integer "working_budget"
   end
 
   create_table "subcons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
